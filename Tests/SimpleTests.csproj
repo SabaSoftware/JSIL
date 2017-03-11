@@ -154,6 +154,7 @@
     <None Include="SimpleTestCases\GetTypeFromAssembly_Issue1035.cs" />
     <None Include="SimpleTestCases\CreateTypeFromName.cs" />
     <None Include="SimpleTestCases\AsyncAwaitCancel.cs" />
+    <None Include="SimpleTestCases\TypeInfoApi.cs" />
     <Compile Include="SimpleTests.cs" />
     <None Include="SimpleTestCases\BaseAutoProperties.cs" />
     <None Include="SimpleTestCases\OverloadedVirtualMethods.cs" />

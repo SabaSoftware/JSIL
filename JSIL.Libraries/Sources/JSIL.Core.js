@@ -7581,7 +7581,7 @@ JSIL.MethodSignature.prototype.toString = function (name, includeReturnType) {
   } else if (this.returnType !== null) {
     signature = JSIL.TypeReferenceToName(this.returnType) + " ";
   } else {
-    signature = "void ";
+    signature = "Void ";
   }
 
   if (typeof (name) === "string") {
