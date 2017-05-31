@@ -276,6 +276,23 @@ JSIL.ImplementExternals(
       }
     );
 
+    $.Method({ Static: true, Public: true }, "IndexOf",
+      new JSIL.MethodSignature("System.Int32", ["System.String", "System.String", "System.StringComparison"], [], $jsilcore),
+      function (str, text, comp) {
+        // localeCompare is better for some of these, but inconsistent
+        // enough that it needs to be tested for corners at least first.
+        switch (comp) {
+          case System.StringComparison.CurrentCultureIgnoreCase:
+            return str.toLocaleLowerCase().indexOf(text.toLocaleLowerCase());
+          case System.StringComparison.InvariantCultureIgnoreCase:
+          case System.StringComparison.OrdinalIgnoreCase:
+            return str.toLowerCase().indexOf(text.toLowerCase());
+          default:
+            return str.indexOf(text);
+        }
+      }
+    );
+
     var makePadding = function (ch, count) {
       var padding = ch;
       for (var i = 1; i < count; i++) {
