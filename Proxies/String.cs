@@ -232,9 +232,24 @@ namespace JSIL.Proxies {
             throw new InvalidOperationException();
         }
 
+        
+        [JSReplacement("System.String.IndexOf($this, $text, $comparisonType)")]
+        [JSIsPure]
+        public int IndexOf(string text, StringComparison comparisonType)
+        {
+            throw new InvalidOperationException();
+        }
+
         [JSReplacement("$this.lastIndexOf(String.fromCharCode($value))")]
         [JSIsPure]
         public int LastIndexOf (char value) {
+            throw new InvalidOperationException();
+        }
+
+        [JSReplacement("System.String.IndexOf($this, $text, $comparisonType)")]
+        [JSIsPure]
+        public int IndexOf(string text, StringComparison comparisonType)
+        {
             throw new InvalidOperationException();
         }
 
