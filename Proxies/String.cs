@@ -196,6 +196,13 @@ namespace JSIL.Proxies {
             throw new InvalidOperationException();
         }
 
+        [JSReplacement("System.String.EndsWith($this, $text, $comparisonType)")]
+        [JSIsPure]
+        public bool EndsWith(string text, StringComparison comparisonType)
+        {
+            throw new InvalidOperationException();
+        }
+
         [JSReplacement("$this.trim()")]
         [JSIsPure]
         public string Trim () {

@@ -141,6 +141,26 @@ JSIL.ImplementExternals(
         return str.lastIndexOf(text) === str.length - text.length;
       }
     );
+    $.Method({ Static: true, Public: true },
+        "EndsWith",
+        new JSIL.MethodSignature("System.Boolean",
+            ["System.String", "System.String", "System.StringComparison"],
+            [],
+            $jsilcore),
+        function(str, text, comp) {
+            // localeCompare is better for some of these, but inconsistent
+            // enough that it needs to be tested for corners at least first.
+            switch (comp) {
+            case System.StringComparison.CurrentCultureIgnoreCase:
+                return str.toLocaleLowerCase().indexOf(text.toLocaleLowerCase()) == str.length - text.length;
+            case System.StringComparison.InvariantCultureIgnoreCase:
+            case System.StringComparison.OrdinalIgnoreCase:
+                return str.toLowerCase().indexOf(text.toLowerCase()) == str.length - text.length;
+            default:
+                return str.indexOf(text) === str.length - text.length;
+            }
+        }
+    );
 
     $.Method({ Static: true, Public: true }, "Format",
       new JSIL.MethodSignature($jsilcore.TypeRef("System.String"), [$jsilcore.TypeRef("System.Array") /* AnyType[] */], []),
