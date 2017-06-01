@@ -14,5 +14,6 @@ public static class Program {
         PrintBool("abcdef".EndsWith("cde"));
         PrintBool("abcdef".EndsWith("DEF", StringComparison.OrdinalIgnoreCase));
         PrintBool("abcdef".EndsWith("CDE", StringComparison.OrdinalIgnoreCase));
+        PrintBool("abcdefa".EndsWith("a", StringComparison.OrdinalIgnoreCase));
     }
 }

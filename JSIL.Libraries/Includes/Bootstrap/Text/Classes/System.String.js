@@ -152,12 +152,12 @@ JSIL.ImplementExternals(
             // enough that it needs to be tested for corners at least first.
             switch (comp) {
             case System.StringComparison.CurrentCultureIgnoreCase:
-                return str.toLocaleLowerCase().indexOf(text.toLocaleLowerCase()) == str.length - text.length;
+                return str.toLocaleLowerCase().lastIndexOf(text.toLocaleLowerCase()) == str.length - text.length;
             case System.StringComparison.InvariantCultureIgnoreCase:
             case System.StringComparison.OrdinalIgnoreCase:
-                return str.toLowerCase().indexOf(text.toLowerCase()) == str.length - text.length;
+                return str.toLowerCase().lastIndexOf(text.toLowerCase()) == str.length - text.length;
             default:
-                return str.indexOf(text) === str.length - text.length;
+                return str.lastIndexOf(text) === str.length - text.length;
             }
         }
     );
